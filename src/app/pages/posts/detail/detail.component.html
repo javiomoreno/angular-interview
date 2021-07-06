@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header"> 
+            Post detalle: {{ id }}
+            <span class="last">Último comentario: {{ lastCommentDate | date:'medium' }}</span>
+        </div>
+        <div class="card-body">
+            <h1>{{ postDetail.title }}</h1>
+            <p>{{ postDetail.body }}</p>
+
+            <app-comments [listComments]="listComments" (upadteLastComment)="upadteLastComment($event)"></app-comments>
+        </div>
+    </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
